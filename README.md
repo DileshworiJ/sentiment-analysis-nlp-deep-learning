@@ -1,70 +1,72 @@
-\# NLP Sentiment Model Comparison (CNN · LSTM · BERT)
+\# Sentiment Analysis — CNN vs LSTM vs BERT (IMDb + Tweets)
 
 
 
-Notebook-based sentiment analysis project comparing \*\*CNN\*\*, \*\*LSTM\*\*, and \*\*BERT/Transformer\*\* approaches on text datasets (IMDb reviews + ChatGPT-related tweets).  
+Notebook-based project comparing \*\*CNN\*\*, \*\*LSTM\*\*, and \*\*BERT/Transformers\*\* for sentiment classification on:
 
-Focus: preprocessing, model training, and evaluation with standard classification metrics.
+\- \*\*IMDb movie reviews\*\* (binary sentiment)
+
+\- \*\*ChatGPT-related tweets\*\* (multi-class sentiment: e.g., positive/neutral/negative)
+
+
+
+This repo focuses on \*\*preprocessing → modeling → evaluation\*\* using standard classification metrics.
+
+
+
+---
 
 
 
 \## What I did
 
-\- Built an end-to-end workflow: \*\*EDA → preprocessing → modeling → evaluation\*\*
+\- Cleaned and prepared text data (tokenization, normalization, optional stopword removal/lemmatization)
 
-\- Compared deep learning architectures for sentiment classification:
+\- Trained deep learning models:
 
-&nbsp; - \*\*CNN\*\* (feature extraction via convolution)
+&nbsp; - \*\*CNN\*\* for local n-gram feature extraction
 
-&nbsp; - \*\*LSTM\*\* (sequence modeling)
+&nbsp; - \*\*LSTM\*\* for sequence modeling
 
-&nbsp; - \*\*BERT / Transformers\*\* (context-aware embeddings)
+&nbsp; - \*\*BERT / Transformers\*\* for contextual embeddings
 
-\- Evaluated models using:
+\- Evaluated using:
 
 &nbsp; - Accuracy, Precision, Recall, F1-score
 
-&nbsp; - Confusion matrix and class distribution analysis
+&nbsp; - Confusion matrix + class distribution checks
 
 
 
-\## Datasets
-
-\- \*\*IMDb movie reviews\*\* (binary sentiment)
-
-\- \*\*ChatGPT-related tweets\*\* (multi-class sentiment such as positive/neutral/negative)
+---
 
 
 
-> ⚠️ Note: Raw datasets are \*\*not uploaded\*\* to this repository (size/licensing).  
+\## Notebook order (recommended)
 
-> Place your local files in the `data/` folder.
-
-
-
-\## Repository structure
-
-\- `notebooks/` — all experiments (EDA, preprocessing, training, evaluation)
-
-\- `data/` — local datasets (ignored on GitHub if configured via `.gitignore`)
+Run the notebooks in this order:
 
 
 
-\## Notebooks (suggested order)
+1\. \*\*IMDb — CNN/LSTM:\*\* `notebooks/imdb\_cnn\_lstm\_sentimentAnalysis.ipynb`  
 
-\- `01\_...` EDA and basic inspection
+2\. \*\*IMDb — BERT:\*\* `notebooks/imdbAnalysis\_BERT.ipynb`  
 
-\- `02\_...` preprocessing + cleaning
+3\. \*\*Tweets — CNN/LSTM:\*\* `notebooks/tweets\_ cnn\_lstm\_sentimentAnalysis.ipynb`  
 
-\- `03\_...` CNN training/evaluation
-
-\- `04\_...` LSTM training/evaluation
-
-\- `05\_...` BERT training/evaluation
+4\. \*\*Tweets — BERT:\*\* `notebooks/tweetsAnalysis\_BERT.ipynb`
 
 
 
-\*(Your current filenames are fine too — this is just a recommended ordering.)\*
+
+
+\## Data
+
+Raw datasets are stored locally in `data/` and are \*\*not uploaded\*\* to GitHub (size/licensing).
+
+
+
+---
 
 
 
@@ -72,29 +74,11 @@ Focus: preprocessing, model training, and evaluation with standard classificatio
 
 
 
-\### Option A — Google Colab (recommended)
+\### Option A — Google Colab
 
-1\. Open any notebook from `notebooks/` in Google Colab
+1\. Open a notebook from `notebooks/` in Colab
 
-2\. Ensure required libraries are installed (some notebooks may include install cells)
+2\. Install missing packages if prompted
 
-3\. Mount Google Drive (if you keep datasets there) and update paths if needed
-
-
-
-\### Option B — Run locally
-
-```bash
-
-python -m venv .venv
-
-\# Windows PowerShell:
-
-.venv\\Scripts\\Activate.ps1
-
-
-
-pip install -r requirements.txt
-
-jupyter notebook
+3\. Set the correct path to your local/Drive `data/` folder
 
